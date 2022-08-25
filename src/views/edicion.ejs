@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/css/stylesLinks.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100&family=Roboto+Mono:wght@100;500&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="smallHead">
+                <h4 class="titulo"><a class="home" href="/">LGN CREATIVA</a></h4>
+                <div class="logo">
+                    <img src="/images/LGN_Fondo_Links-03.png">
+                </div>
+            </div>
+            <% if(title=="NUEVO LINK"){ %>
+                <p class="saludo">NUEVO LINK</span></p>
+            <% } else { %>
+                <p class="saludo">EDICIÓN LINKS</span></p>
+            <% } %>
+        </header>
+        <section>
+                <% if(title=="NUEVO LINK"){ %>
+                    <form action="/nuevo" method="POST">
+                <% } else { %>
+                    <form action="/editar/<%= idLink %>?_method=PUT" method="POST">
+                <% } %>   
+                    <div class="bloque-campos">
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" class="campo-link link-nombre" placeholder="Nombre" maxlength="25" value="<%=locals.oldInfo && oldInfo.nombre ? oldInfo.nombre : null %>">
+                    </div>
+                    <div class="bloque-campos">
+                        <label>Alias</label>
+                        <input type="text" name="alias" class="campo-link link-alias" placeholder="Alias" maxlength="10" value="<%=locals.oldInfo && oldInfo.alias ? oldInfo.alias : null %>">
+                    </div>
+                    <div class="bloque-campos">
+                        <label>Link</label>
+                        <input type="text" name="link" class="campo-link link-link" placeholder="Link" value="<%=locals.oldInfo && oldInfo.link ? oldInfo.link : null %>">
+                    </div>
+                    <div class="bloque-campos">
+                        <label>Descripción</label>
+                        <input type="text" name="descripcion" class="campo-link link-descripcion" placeholder="Descripcion" value="<%=locals.oldInfo && oldInfo.descripcion ? oldInfo.descripcion : null %>">
+                    </div>
+                <% if (locals.errores){ %>
+                    <div class="errores">
+                        <% if (locals.errores.nombre){ %>
+                            <span class="feedback"><%= locals.errores.nombre.msg %></span>
+                        <% } %>
+                        <% if (locals.errores.alias){ %>
+                            <span class="feedback"><%= locals.errores.alias.msg %></span>
+                        <% } %>
+                        <% if (locals.errores.link){ %>
+                            <span class="feedback"><%= locals.errores.link.msg %></span>
+                        <% } %>
+                        <% if (locals.errores.descripcion){ %>
+                            <span class="feedback"><%= locals.errores.descripcion.msg %></span>
+                        <% } %>
+                    </div>
+                <% } %>
+                <input class="boton" type="submit" value="Confirmar">
+            </form>
+            <% if(title=="EDICIÓN LINKS"){ %>
+                <% if(estado=="activo"){ %>
+                    <form action="/eliminar/<%= idLink %>?_method=DELETE" method="POST">
+                        <input class="boton" type="submit" value="Eliminar">
+                    </form>
+                <% } else { %>
+                    <form action="/recuperar/<%= idLink %>?_method=PUT" method="POST">
+                        <input class="boton" type="submit" value="Recuperar">
+                    </form>
+                <% } %>
+            <% } %>
+        </section> 
+        <footer>
+            <img src="/images/LGN_Fondo_Links-02.png">
+        </footer>        
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>INICIAR SESION</title>
+        <link rel="stylesheet" href="/css/stylesLinks.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100&family=Roboto+Mono:wght@100;500&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="smallHead">
+                <h4 class="titulo"><a class="home" href="/">LGN CREATIVA</a></h4>
+                <div class="logo">
+                    <img src="/images/LGN_Fondo_Links-03.png">
+                </div>
+            </div>
+            <p class="saludo">INICIAR SESION</span></p>
+        </header>
+        <section>
+            <form action="/login" method="POST">
+                <div class="info-personal">
+                    <input type="text" name="user" placeholder="usuario" required <%= locals.usuario  ? "value=" + locals.usuario : '' %>>
+                    <input type="password" name="contrasena" placeholder="Contraseña" required>
+                </div>
+                <% if (locals.error && (locals.error.user || locals.error.contrasena)){ console.log(error)%>
+                    <div class="errores">
+                        <span class="feedback">Las credenciales son incorrectas</span>
+                    </div>
+                <% } %>
+                <div class="recordar">
+                    <input type="checkbox" name="recordar" id="recordar">
+                    <label for="recordar">Recordar información</label>
+                </div>
+                <div class="botones">
+                    <input type="submit" value="INGRESAR">
+                </div>
+            </form>
+        </section> 
+        <footer>
+            <img src="/images/LGN_Fondo_Links-02.png">
+        </footer>        
+    </body>
+</html>

@@ -1,0 +1,191 @@
+*{
+    padding:0px
+}
+
+a.home{
+    text-decoration: none;
+    color:white;
+}
+
+li{
+    list-style: none;
+}
+
+body{
+    background-color: black;
+    color:white;
+    width: 70%;
+    margin: auto;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/** Estilos Primer Head **/
+.smallHead{
+    display:flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.titulo{
+    font-size: 10px;
+    letter-spacing: 8px;
+}
+
+.logo{
+    width:8%
+}
+
+.logo img{
+    filter:invert(100%);
+    width:100%
+}
+
+/** Estilos Segundo Head **/
+.saludo{
+    font-size: 42px;
+    line-height: 64px;
+    border: 1px solid white;
+    border-radius: 30px;
+    width:40%;
+    text-align: center;
+    font-weight:lighter;
+}
+
+.saludo span{
+    font-weight: normal;
+}
+
+/** Estilo Loggin **/
+section form div.info-personal input{
+    font-size: 24px;
+}
+
+section form div.recordar input{
+    margin: 20px 0px;
+}
+
+section form div.botones input{
+    width:20%;
+    font-size: 24px;
+}
+
+
+/** Estilos Tabla **/
+.tablaLinks{
+    display:flex;
+    list-style: none;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.tablaLinks li.columna {
+    border: 1px solid white;
+}
+
+.tablaLinks .nombre{
+    width:34%
+}
+
+.tablaLinks .link{
+    width:15%;
+}
+
+.tablaLinks .descripcion{
+    width:49%
+}
+
+.titulo-columna{
+    background-color: white;
+    color:black;
+    font-weight: bolder;
+    font-size: 20px;
+    width: 100%;
+    line-height: 40px;
+    display:flex;
+    align-items: center;
+}
+
+.titulo-columna img{
+    filter:invert(100%);
+    width:30px    
+}
+
+
+/** Estilos Links **/
+.tablaLinks li ul li{
+    list-style: none;
+    line-height: 32px;
+    margin-left:10px
+}
+
+li.descripcion ul li{
+    display: flex;
+    justify-content: space-between;
+    position:relative
+}
+
+li.descripcion ul li a{
+    color:white;
+    position:absolute;
+    right:-25px
+}
+
+li.link ul li a{
+    color:white
+}
+
+a.nuevo{
+    color: white;
+    font-size: 24px;
+}
+
+div.vinculos{
+    width:10%;
+    display:flex;
+    justify-content: space-around;
+}
+
+footer img{
+    filter:invert(100%);
+    width:100%
+}
+
+/** Etilos tabla de edicion **/
+div.bloque-campos{
+    display:flex;
+    margin: 5px 0px;
+    align-items: center;
+}
+
+div label{
+    width: 15%;
+}
+
+div .campo-link{
+    background-color: black;
+    width:85%;
+    color:white;
+    font-size: 16px;
+    line-height: 40px;
+}
+
+input.boton{
+    font-size: 24px;
+    width:20%;
+    margin:10px 0px
+}
+
+/** Estilos Errores **/
+.errores{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.errores .feedback{
+    display:block;
+    width:100%;
+    color:red
+}
